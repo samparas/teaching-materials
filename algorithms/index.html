@@ -43,7 +43,6 @@
 	<h1 class="upper">Intro to Algorithms</h1>
   <br>
   <br>
-  <h4>teaching-materials.org/algorithms/</h4>
 </section>
 
 <section>
@@ -92,8 +91,7 @@
   <h2>Hanging Up Laundry: Code</h2>
   <br>
 
-  <pre><code>
-var piles = {'shirts': [], 'socks': []}
+  <pre><code>var piles = {'shirts': [], 'socks': []}
 for (var i = 0; i &lt; clothing.length; i++) {
   piles[clothing[i].type].push(clothing[i]);
 }
@@ -136,10 +134,10 @@ for (var pile in piles) {
 <section>
   <h2>Laundry v2</h2>
 
-  <p>Addition: We hang up our items in sorted order in the closet.</p>
+  <p>Additional step: when hanging up piece of laundry,
+   arrange it by color in the closet.</p>
 
-  <pre><code>
-var piles = {'shirts': [], 'socks': []}
+<pre><code>var piles = {'shirts': [], 'socks': []}
 for (var i = 0; i &lt; clothing.length; i++) {
   piles[clothing[i].type].push(clothing[i]);
 }
@@ -158,9 +156,9 @@ for (var type in piles) {
 <section>
   <h2>Laundry v2: Time Complexity</h2>
 
-  <p>Now we must loop through closet section items
-    <strong>each time</strong> we hang up an item.
-    <br>
+  <p>Now, <strong>each time</strong> we hang up a piece of laundry,
+   we have to look at <strong>each other item</strong> in the closet section.
+    <br/>
     Each look at an item takes 2 seconds.
   </p>
 
@@ -187,25 +185,10 @@ for (var type in piles) {
 
 <section>
   <h2>Time Complexity</h2>
-
-  <table style="margin:auto; background:white; padding: 5px; font-size:smaller;">
-    <thead>
-      <tr>
-        <th>Order of growth</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Example</th>
-      </tr>
-    <tbody>
-      <tr><td>1   <td>constant     <td>statement <td>add two numbers</tr>
-      <tr><td>logN <td>logarithmic <td>divide in half <td>binary search</tr>
-      <tr><td>N    <td>linear      <td>loop           <td>find the maximum</tr>
-      <tr><td>NlogN <td>linearithmic <td>divide + conquer <td>merge sort </tr>
-      <tr><td>N<sup>2</sup> <td>quadratic <td>double loop <td>check all pairs</tr>
-      <tr><td>N<sup>3</sup> <td>cubic <td>triple loop <td>check all triples</tr>
-      <tr><td>2<sup>N</sup> <td>exponential <td>exhaustive search <td>check all subsets</tr>
-  </table>
-  <!-- graph of them? -->
+  
+  <p>Some algorithms take way longer than others!</p>
+ 
+  <img src="http://www.teaching-materials.org/algorithms/images/big-o-graph.png">
 </section>
 
 <section>
@@ -242,6 +225,7 @@ for (var type in piles) {
   <!-- you may not care about space or time -->
 </section>
 
+<!--
 <section>
   <h2>Discuss!</h2>
   <br>
@@ -250,6 +234,7 @@ for (var type in piles) {
   <p>What's the space requirement of your algorithm?</p>
 
 </section>
+-->
 
 <section>
   <h2>Algorithms in Programming</h2>
@@ -363,25 +348,30 @@ For I = 0 to N - 2
   <p class="fragment">N = number of items in sequence.</p>
   <br>
 
-  <p class="fragment">What is the best case?</p>
-  <p class="fragment">Already sorted array
+
+  <div class="fragment">
+  <p>What is the best case?</p>
+  <p>Already sorted array
     <br>N comparisons.
     <br>O(N)
   </p>
   <br>
-  <p class="fragment">What is the worst case?</p>
-  <p class="fragment">Reverse sorted array
+  <p>What is the worst case?</p>
+  <p>Reverse sorted array
     <br>N*N comparisons.
     <br>O(N<sup>2</sup>)
   </p>
+  </div>
   <!-- TODO: gif of rabbits and turtles -->
 </section>
 
+<!--
 <section>
   <h2>Bubble Sort: Space Complexity</h2>
   <br>
   <p>Only requires 1 extra temporary variable.</p>
 </section>
+-->
 
 <section>
   <h2>More Sort Algorithms</h2>
@@ -395,6 +385,8 @@ For I = 0 to N - 2
     <li>Selection sort</li>
     <li>Merge sort</li>
     <li>Bucket sort</li>
+    <li>Bogo sort</li>
+    <li>Quantum Bogo sort</li>
   </ul>
   <!-- TODO: link these -->
   <br>
@@ -406,20 +398,7 @@ For I = 0 to N - 2
   </p>
 </section>
 
-<section>
-  <h2>Fun Sort Algorithms</h2>
-  <br>
-  <p>(Who says programmers don't know how to let loose?)</p>
-  <br>
-  <ul>
-    <li>Pancake sort</li>
-    <li>Spaghetti sort</li>
-    <li>BogoSort</li>
-    <li>Quantum Bogo Sort</li>
-  </ul>
-  <!-- TODO: link these -->
-</section>
-
+<!--
 <section>
   <h2>Exercise Time!</h2>
   <br>
@@ -430,15 +409,14 @@ For I = 0 to N - 2
     <li>Keep track of the number of operations you have to do.
     <li>If you have time, try another algorithm.
   </ul>
-<!--
 Exercise Time!:
 2a) Use Blockly
 2) If you do feel comfortable, take this exercise
 Start with unsorted array of pictures with numbers
 Implement a sort algorithm in JavaScript. Use new Date() to time how long it takes. Use jsperf.com to compare time across browsers. (http://jsperf.com/kyle-sorting-algorithms)
 http://faculty.cs.niu.edu/~hutchins/csci241/sorting.htm
--->
 </section>
+-->
 
 <section>
   <h2>Searching Algorithms</h2>
@@ -465,6 +443,18 @@ http://faculty.cs.niu.edu/~hutchins/csci241/sorting.htm
 </section>
 
 <section>
+  <h2>Exercise Time!</h2>
+  <br>
+  <ul>
+    <li>Play the number guessing game (higher/lower).</li>
+    <li>Try and guess the number in the smallest number of tries using 
+      the principles of binary search.</li>
+    <li>Keep track of the number of guesses it takes you.</li>
+    <li>If you have time, repeat for different ranges (0-500, 0-1000, etc)
+  </ul>
+</section>
+
+<section>
   <h2>Binary Search: Steps</h2>
   <br>
   <!-- todo wikipedia animation? -->
@@ -481,6 +471,7 @@ http://faculty.cs.niu.edu/~hutchins/csci241/sorting.htm
   </ul>
 </section>
 
+<!--
 <section>
   <h2>Exercise: Binary Search Simulation</h2>
   <br>
@@ -489,6 +480,7 @@ http://faculty.cs.niu.edu/~hutchins/csci241/sorting.htm
     <li>Now let's find someone with a particular height using binary search.
   </ul>
 </section>
+-->
 
 <section>
   <h2>Binary Search: Pseudocode</h2>
@@ -518,33 +510,10 @@ BinarySearch(array, value) {
   <p class="fragment">N = number of items in sequence.</p>
   <br>
   <p class="fragment">Since algorithm splits array in half every time,
-    at most log<sub>2</sub>N steps are performed.
+    at most <code>log<sub>2</sub>N</code> steps are performed.
+  <img src="http://www.teaching-materials.org/algorithms/images/big-o-graph.png">
   </p>
   <!-- TODO: show how log2N is less than others, graph -->
-</section>
-
-<section>
-  <h2>Other Searching Algorithms</h2>
-  <br>
-  <p>Performance varies depending on sequence characteristics (distribution)
-  </p>
-  <Br>
-  <ul>
-    <li><a href="http://en.wikipedia.org/wiki/Linear_search">Linear</a>
-    <li><a href="http://en.wikipedia.org/wiki/Interpolation_search">Interpolation search</a>
-  </ul>
-</section>
-
-<section>
-  <h2>Exercise Time!</h2>
-  <br>
-  <ul>
-    <li>Play the number guessing game (higher/lower).</li>
-    <li>Try and guess the number in the smallest number of tries using 
-      the principles of binary search.</li>
-    <li>Keep track of the number of guesses it takes you.</li>
-    <li>If you have time, repeat for different ranges (0-500, 0-1000, etc)
-  </ul>
 </section>
 
 <section>
@@ -561,21 +530,35 @@ BinarySearch(array, value) {
   <h2>Graph Traversal Algorithms</h2>
   <br>
   <p>Find a route in a graph.</p>
-
   <p>Find a particular node in a connected graph.</p>
 
   <img src="images/graphanim.gif">
 
 </section>
 
-
 <section>
+  <h2>Graph Traversal in Real Life</h2>
+  <br>
+  <ul>
+    <li>Word search
+    <li>Maze solving
+    <li>Calculating an optimal route
+    <li>Grocery store shopping
+    <li>Calculating chess strategies
+    <li>Making a guest list
+    <li>Finding a new book to read on Amazon
+  </ul>
+</section>
+
+
+<!--<section>
   <h2>Depth First Search (DFS) </h2>
   <br>
   <img src="images/dfsanim.gif">
 </section>
+-->
 
-<section>
+<!--<section>
   <h2>DFS: Steps</h2>
 
   <img src="http://mhesham.files.wordpress.com/2010/04/300pxdepthfirsttree-svg_thumb.png?w=449&amp;h=288">
@@ -583,14 +566,9 @@ BinarySearch(array, value) {
     <li>DFS progresses by expanding the first child node of the search tree that appears and thus going deeper and deeper until a goal node is found, or until it hits a node that has no children.
     <li>Then the search backtracks, returning to the most recent node it hasn’t finished exploring. 
   </ul>
-</section>
+</section>-->
 
-<!-- TODO: simulation? string holding? draw graph as we do it -->
-
-
-</section>
-
-<section>
+<!--<section>
   <h2>DFS: Pseudocode</h2>
   <br>
   <img src="http://mhesham.files.wordpress.com/2010/04/300pxdepthfirsttree-svg_thumb.png?w=449&amp;h=288">
@@ -619,9 +597,10 @@ procedure depth_first_search(graph, vertex):
   <br>
   <p>Space: <code>O(bd)</code></p>
 </section>
+-->
 
 <section>
-  <h2>More Graph Search Algorithms</h2>
+  <h2>Graph Search Algorithms</h2>
   <br>
 
   <p>Many of these use "heuristics" to make a better guess
@@ -630,6 +609,7 @@ procedure depth_first_search(graph, vertex):
   <img src="images/bfsanim.gif">
   <br>
   <ul>
+    <li><a href="http://en.wikipedia.org/wiki/Depth-first_search">Depth-first-search</a>
     <li><a href="http://en.wikipedia.org/wiki/Depth-limited_search">Depth-limited</a>
     <li><a href="http://en.wikipedia.org/wiki/Breadth-first_search">Breadth-first-search</a>
     <li><a href="http://en.wikipedia.org/wiki/A*_search_algorithm">A*</a>
@@ -639,9 +619,8 @@ procedure depth_first_search(graph, vertex):
 </section>
 
 
-<section>
+<!--<section>
   <h2>Graph Traversal in Real Life</h2>
-
   <br>
   <ul>
     <li>Word search
@@ -653,11 +632,7 @@ procedure depth_first_search(graph, vertex):
     <li>Finding a new book to read on Amazon
   </ul>
 </section>
-
-
-<!-- TODO use this http://www.tastekid.com/like/Paper+Heart/movies
-    http://findtheband.com/?
-  -->
+-->
 
 <section>
   <h2>The Traveling Salesman Problem</h2>
@@ -685,7 +660,7 @@ Lots of possibilities, ant colony
 
 </section>
 
-<section>
+<!--<section>
   <h2>Exercise Time!</h2>
   <br>
   <ul>
@@ -699,7 +674,7 @@ Lots of possibilities, ant colony
       that you visit.
     </li>
   </ul>
-</section>
+</section>-->
 
 <section>
   <h2>More Algorithms!</h2>
@@ -713,9 +688,10 @@ Lots of possibilities, ant colony
   <h2>Geometry: Detecting Collision</h2>
   <br>
   <img src="http://http.developer.nvidia.com/GPUGems3/elementLinks/33fig01.jpg">
-
+<!--
   <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="450" height="450" id="CDDemo2" align="middle"><param name="allowScriptAccess" value="sameDomain" /><param name="movie" value="/blog/assets/CDDemo2.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#333333" /><embed src="/blog/assets/CDDemo2.swf" quality="high" bgcolor="#333333" width="450" height="450" name="CDDemo2" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
   </object>
+-->
 
   <p>
     <a href="http://gskinner.com/blog/archives/2005/10/source_code_sha.html">☞ Demo: Shape-Based Hit Detection</a>,
@@ -737,7 +713,7 @@ Lots of possibilities, ant colony
 
 </section>
 
-<section>
+<!--<section>
   <h2>Statistics: k-means clustering</h2>
   <br>
   <iframe src="http://vis4.net/labs/clustering/kmeans.html">
@@ -748,9 +724,9 @@ Lots of possibilities, ant colony
   <a href="http://en.wikipedia.org/wiki/K-means_clustering">☞ Wikipedia: K-means clustering</a>
   </p>
 
-</section>
+</section>-->
 
-<section>
+<!--<section>
   <h2>Machine learning: decision trees</h2>
   <br>
 
@@ -759,8 +735,7 @@ Lots of possibilities, ant colony
   
   <p><a href="http://en.wikipedia.org/wiki/Decision_tree_learning">Wikipedia: Decision tree learning</a>
   </p>
-
-</section>
+</section>-->
 
 <section>
   <h2>Compression: Run-length encoding</h2>
